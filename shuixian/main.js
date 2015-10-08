@@ -1,16 +1,22 @@
-function sum(n,m){
-      var result = n;
-      for(var i = 1; i<m; i++){
-            n = Math.sqrt(n);
-            result += n;
-      }
-      
-      return result.toFixed(2);
+function shuixian(n,m){
+	var result = [];
+	for(var i = n; i<=m; i++){
+		var arr = String(i).split("");
+		var sum = Math.pow(parseInt(arr[0]),3)+Math.pow(parseInt(arr[1]),3)+Math.pow(parseInt(arr[2]),3);
+		
+		if(sum == i){
+			result.push(i);
+		}
+	}
+	if(result.length === 0){
+		result.push("no");
+	}
+
+	return result.join(" ");
 }
 
 var line;
 while(line = readline()){
-    line = line.split(' ');
-    
-    print(sum(parseInt(line[0]),parseInt(line[1])));
+    line = line.split(' ');    
+    print(shuixian(parseInt(line[0]),parseInt(line[1])));
 }
